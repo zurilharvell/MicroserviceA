@@ -21,9 +21,14 @@ pip install passlib
 pip install python-mulipart
 pip install requests
 
+Request Data:
+Review the test_registerUser function in the test_service.py
 
-First start running the server in 1 terminal: 
+Receive Data:
+Review the test_login_regUser function in the test_service.py
+
+Terminal 1:
 uvicorn main:authentication_app --reload
 
-In a separate terminal run the test program:
+Terminal 2:
 python3 test_service.py
