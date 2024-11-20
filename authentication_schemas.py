@@ -10,7 +10,8 @@ class User(BaseModel):
     password: str
     #liked_movies: Optional[List[int]] = []
 
-class UserInDB(User):
+class UserInDB(BaseModel):
+    email: str
     hashed_password: str
     #liked_movies: Optional[List[int]] = []
 

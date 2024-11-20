@@ -14,14 +14,14 @@ SECRET_KEY = os.getenv("SECRET_KEY", "your_default_key")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
-def verifyPassword(plain_pass, hashed_pass): -> bool:
+def verifyPassword(plain_pass: str, hashed_pass: str) -> bool:
     return password_contxt.verify(plain_passw, hashed_pass)
 
-def get_password_hash(hashed_pass): -> str:
+def get_password_hash(hashed_pass: str) -> str:
     return password_contxt.hash(hashed_pass)
 
-def create_access_token(data: Dict[str, Any]): -> str:
-    to_encode_data = data.copy()
+def create_access_token(token_data: Dict[str, Any]) -> str:
+    to_encode_data = token_data.copy()
 
     expire = datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
 
@@ -31,9 +31,8 @@ def create_access_token(data: Dict[str, Any]): -> str:
 
     return encoded_jwt
 
-def decode_access_token(access_token: str): -> Optional[Dict[str, Any]]:
+def decode_access_token(access_token: str) -> Optional[Dict[str, Any]]:
     try:
-        decoding_payload = jwt.decode(access_token, SECRET_KEY, algorithms=[ALGORITHM])
-        return decoding_payload
+        return jwt.decode(access_token, SECRET_KEY, algorithms=[ALGORITHM])
     except jwt.PyJWTError:
         return None
