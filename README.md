@@ -22,10 +22,12 @@ pip install python-mulipart
 pip install requests
 
 Request Data:
-Review the test_registerUser function in the test_service.py
+- Send a POST request to the /token endpoint with the user’s email and password
+- Review the test_registerUser function in the test_service.py for an example
 
 Receive Data:
-Review the test_login_regUser function in the test_service.py
+- Handle the JSON response returned by the POST request
+- Review the test_login_regUser function in the test_service.py for an example
 
 Terminal 1:
 uvicorn main:authentication_app --reload
