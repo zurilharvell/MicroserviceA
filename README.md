@@ -34,3 +34,8 @@ uvicorn main:authentication_app --reload
 
 Terminal 2:
 python3 test_service.py
+
+<img width="714" alt="Screenshot 2024-11-20 at 3 00 00 AM" src="https://github.com/user-attachments/assets/212a4480-4d93-40e7-bb92-3365b8ba0d8a">
+
+
+
